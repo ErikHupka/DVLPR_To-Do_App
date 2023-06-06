@@ -231,7 +231,7 @@ const ToDoBoard: React.FC = () => {
       <div className="max-w-screen flex flex-wrap justify-evenly gap-6 p-8">
       {allLists?.map((list) => {
         const tasksForList = getFilteredTasks(allTasks?.filter((task) => 
-        task.ListId === list.id && task.title.includes(searchText)) || []);
+        task.ListId === list.id && task.title.toLowerCase().includes(searchText.toLowerCase())) || []);
           return (
             <ToDoList
               key={list.id}

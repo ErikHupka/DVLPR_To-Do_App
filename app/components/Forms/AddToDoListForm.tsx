@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface AddToDoListFormProps {
@@ -29,6 +29,15 @@ const AddToDoListForm: React.FC<AddToDoListFormProps> = ({ onAddToDoList, setFil
   const handleClearSearch = () => {
     setSearchText('');
   };
+
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [inputFocused, setInputFocused] = useState(false);
+
+  useEffect(() => {
+    if (inputFocused && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [searchText, inputFocused])
 
   const modalRef = useRef<HTMLDialogElement>(null);
 
@@ -77,7 +86,15 @@ const AddToDoListForm: React.FC<AddToDoListFormProps> = ({ onAddToDoList, setFil
 
       <div>
         <div className="input-group mr-3 flex-auto">
-            <input id="searchText" type="text" placeholder="Search…" className="input input-bordered input-accent input-sm" onChange={(e) => setSearchText(e.target.value.toLowerCase())} value={searchText}/>
+            <input 
+            id="searchText" 
+            type="text" 
+            placeholder="Search…" 
+            className="input input-bordered input-accent input-sm" 
+            onChange={(e) => setSearchText(e.target.value)} 
+            onFocus={() => setInputFocused(true)}
+            onBlur={() => setInputFocused(false)}
+            value={searchText} ref={searchInputRef}/>
               <button className="btn btn-square btn-accent btn-sm" title='Search' onClick={handleClearSearch}>
                 x
               </button>

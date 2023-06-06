@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import ToDoItem from './ToDoTask';
 import AddToDoItemForm from '../Forms/AddToDoItemForm';
 import DeleteList from '../Forms/DeleteList';
-import EditTask from '../Forms/EditTask';
 import EditList from '../Forms/EditList';
 import { Task, TaskCreationData, List } from '../interfaces/interfaces'
 
