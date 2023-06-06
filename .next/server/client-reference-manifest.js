@@ -230,6 +230,58 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
+    "(app-client)/./app/feedback/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/feedback/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/feedback/page:static/chunks/app/feedback/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/feedback/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/feedback/page:static/chunks/app/feedback/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/feedback/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/feedback/page:static/chunks/app/feedback/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/client/link.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "name": "*",
+        "chunks": [
+          "app/about/page:static/chunks/app/about/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "name": "",
+        "chunks": [
+          "app/about/page:static/chunks/app/about/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "name": "default",
+        "chunks": [
+          "app/about/page:static/chunks/app/about/page.js"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./app/components/Forms/AddToDoItemForm.tsx": {
       "*": {
         "id": "(sc_client)/./app/components/Forms/AddToDoItemForm.tsx",
@@ -308,9 +360,9 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
-    "(app-client)/./node_modules/next/dist/client/link.js": {
+    "(app-client)/./app/about/page.tsx": {
       "*": {
-        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "id": "(sc_client)/./app/about/page.tsx",
         "name": "*",
         "chunks": [
           "app/about/page:static/chunks/app/about/page.js"
@@ -318,7 +370,7 @@ self.__RSC_MANIFEST={
         "async": false
       },
       "": {
-        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "id": "(sc_client)/./app/about/page.tsx",
         "name": "",
         "chunks": [
           "app/about/page:static/chunks/app/about/page.js"
@@ -326,7 +378,7 @@ self.__RSC_MANIFEST={
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "id": "(sc_client)/./app/about/page.tsx",
         "name": "default",
         "chunks": [
           "app/about/page:static/chunks/app/about/page.js"
@@ -356,58 +408,6 @@ self.__RSC_MANIFEST={
         "name": "default",
         "chunks": [
           "app/settings/page:static/chunks/app/settings/page.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/about/page.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/about/page.tsx",
-        "name": "*",
-        "chunks": [
-          "app/about/page:static/chunks/app/about/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./app/about/page.tsx",
-        "name": "",
-        "chunks": [
-          "app/about/page:static/chunks/app/about/page.js"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/about/page.tsx",
-        "name": "default",
-        "chunks": [
-          "app/about/page:static/chunks/app/about/page.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/feedback/page.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/feedback/page.tsx",
-        "name": "*",
-        "chunks": [
-          "app/feedback/page:static/chunks/app/feedback/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./app/feedback/page.tsx",
-        "name": "",
-        "chunks": [
-          "app/feedback/page:static/chunks/app/feedback/page.js"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/feedback/page.tsx",
-        "name": "default",
-        "chunks": [
-          "app/feedback/page:static/chunks/app/feedback/page.js"
         ],
         "async": false
       }
@@ -1092,6 +1092,92 @@ self.__RSC_MANIFEST={
       ],
       "async": false
     },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/feedback/page.tsx": {
+      "id": "(app-client)/./app/feedback/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/feedback/page:static/chunks/app/feedback/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/feedback/page.tsx#": {
+      "id": "(app-client)/./app/feedback/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/feedback/page:static/chunks/app/feedback/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/feedback/page.tsx#default": {
+      "id": "(app-client)/./app/feedback/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/feedback/page:static/chunks/app/feedback/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/globals.css#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css"
+      ]
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/font/google/target.css?{\"arguments\":[{\"subsets\":[\"latin\"]}],\"import\":\"Inter\",\"path\":\"app/layout.tsx\",\"variableName\":\"inter\"}#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css"
+      ]
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/client/link.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "*",
+      "chunks": [
+        "app/about/page:static/chunks/app/about/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/esm/client/link.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "*",
+      "chunks": [
+        "app/about/page:static/chunks/app/about/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/client/link.js#": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "",
+      "chunks": [
+        "app/about/page:static/chunks/app/about/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/esm/client/link.js#": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "",
+      "chunks": [
+        "app/about/page:static/chunks/app/about/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/client/link.js#default": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "default",
+      "chunks": [
+        "app/about/page:static/chunks/app/about/page.js"
+      ],
+      "async": false
+    },
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/esm/client/link.js#default": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "default",
+      "chunks": [
+        "app/about/page:static/chunks/app/about/page.js"
+      ],
+      "async": false
+    },
     "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/components/Forms/AddToDoItemForm.tsx": {
       "id": "(app-client)/./app/components/Forms/AddToDoItemForm.tsx",
       "name": "*",
@@ -1164,62 +1250,24 @@ self.__RSC_MANIFEST={
       ],
       "async": false
     },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/globals.css#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/layout.css"
-      ]
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/font/google/target.css?{\"arguments\":[{\"subsets\":[\"latin\"]}],\"import\":\"Inter\",\"path\":\"app/layout.tsx\",\"variableName\":\"inter\"}#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/layout.css"
-      ]
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/client/link.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/about/page.tsx": {
+      "id": "(app-client)/./app/about/page.tsx",
       "name": "*",
       "chunks": [
         "app/about/page:static/chunks/app/about/page.js"
       ],
       "async": false
     },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/esm/client/link.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/link.js",
-      "name": "*",
-      "chunks": [
-        "app/about/page:static/chunks/app/about/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/client/link.js#": {
-      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/about/page.tsx#": {
+      "id": "(app-client)/./app/about/page.tsx",
       "name": "",
       "chunks": [
         "app/about/page:static/chunks/app/about/page.js"
       ],
       "async": false
     },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/esm/client/link.js#": {
-      "id": "(app-client)/./node_modules/next/dist/client/link.js",
-      "name": "",
-      "chunks": [
-        "app/about/page:static/chunks/app/about/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/client/link.js#default": {
-      "id": "(app-client)/./node_modules/next/dist/client/link.js",
-      "name": "default",
-      "chunks": [
-        "app/about/page:static/chunks/app/about/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/node_modules/next/dist/esm/client/link.js#default": {
-      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/about/page.tsx#default": {
+      "id": "(app-client)/./app/about/page.tsx",
       "name": "default",
       "chunks": [
         "app/about/page:static/chunks/app/about/page.js"
@@ -1247,54 +1295,6 @@ self.__RSC_MANIFEST={
       "name": "default",
       "chunks": [
         "app/settings/page:static/chunks/app/settings/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/about/page.tsx": {
-      "id": "(app-client)/./app/about/page.tsx",
-      "name": "*",
-      "chunks": [
-        "app/about/page:static/chunks/app/about/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/about/page.tsx#": {
-      "id": "(app-client)/./app/about/page.tsx",
-      "name": "",
-      "chunks": [
-        "app/about/page:static/chunks/app/about/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/about/page.tsx#default": {
-      "id": "(app-client)/./app/about/page.tsx",
-      "name": "default",
-      "chunks": [
-        "app/about/page:static/chunks/app/about/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/feedback/page.tsx": {
-      "id": "(app-client)/./app/feedback/page.tsx",
-      "name": "*",
-      "chunks": [
-        "app/feedback/page:static/chunks/app/feedback/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/feedback/page.tsx#": {
-      "id": "(app-client)/./app/feedback/page.tsx",
-      "name": "",
-      "chunks": [
-        "app/feedback/page:static/chunks/app/feedback/page.js"
-      ],
-      "async": false
-    },
-    "/Users/erik_jr_hupka/Projects/DVLPR_To-Do_App/app/feedback/page.tsx#default": {
-      "id": "(app-client)/./app/feedback/page.tsx",
-      "name": "default",
-      "chunks": [
-        "app/feedback/page:static/chunks/app/feedback/page.js"
       ],
       "async": false
     }

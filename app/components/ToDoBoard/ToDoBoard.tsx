@@ -4,30 +4,10 @@ import * as listAPI from '../API/listAPI';
 import * as taskAPI from '../API/taskAPI';
 import AddToDoListForm from '../Forms/AddToDoListForm';
 import ToDoList from './ToDoList';
-
-interface List {
-  id: string;
-  title: string;
-}
-
-interface Task {
-  id: string;
-  ListId: string;
-  title: string;
-  description: string;
-  deadline: string;
-  isFinished: boolean;
-}
-
-interface TaskCreationData {
-  listId: string,
-  title: string,
-  description: string,
-  deadline: string;
-  isFinished: boolean;
-}
+import { TaskCreationData, List, Task } from '../interfaces/interfaces';
 
 const ToDoBoard: React.FC = () => {
+
 
   // Define new Query Hook for Lists and Tasks
 
@@ -37,8 +17,14 @@ const ToDoBoard: React.FC = () => {
     enabled: !!allLists.length
   });  
 
+
+  // Define hooks for Search Bar and Filter Radio buttons
+
   const [searchText, setSearchText] = useState('');
   const [filterTaskRadio, setFilterTaskRadio] = useState('all');
+
+
+  // Filter Tasks via Radio buttons on the NavBar
 
   const getFilteredTasks = (tasks: Task[]) => {
     switch (filterTaskRadio) {
@@ -50,6 +36,7 @@ const ToDoBoard: React.FC = () => {
         return tasks.filter(task => task.isFinished);
     }
   }
+
 
   // CREATE LIST 
 
@@ -90,6 +77,7 @@ const ToDoBoard: React.FC = () => {
     },
   });
 
+
   // MUTATION - Delete List
 
   const deleteToDoList = (idToRemove: string) => {
@@ -119,6 +107,7 @@ const ToDoBoard: React.FC = () => {
     }
   );
 
+
   // MUTATION - Create Task
 
   const addTask = (listId: string, task: TaskCreationData) => {
@@ -138,6 +127,7 @@ const ToDoBoard: React.FC = () => {
       },
     }
   );
+
 
   // MUTATION - Delete Task
 
@@ -160,7 +150,9 @@ const ToDoBoard: React.FC = () => {
     }
   );
 
+
   // MUTATION - Change Status
+
   const toggleTaskStatus = (listId: string, taskId: string) => {
     toggleTaskStatusMutation.mutate({ listId, taskId });
   };
@@ -178,6 +170,7 @@ const ToDoBoard: React.FC = () => {
     }
   )
 
+
   // MUTATION - Edit Task
 
   const editTask = (task: Task) => {
@@ -187,9 +180,7 @@ const ToDoBoard: React.FC = () => {
 
   // EDIT LIST
 
-  const editListMutation = useMutation(
-    ({listId, title}: { listId: string, title: string }) =>
-    listAPI.editList(listId, title), 
+  const editListMutation = useMutation(listAPI.editList, 
     {
       onSuccess: (data) => {
         queryClient.setQueryData<List[]>(['lists'], (prevLists = []) =>
@@ -199,23 +190,44 @@ const ToDoBoard: React.FC = () => {
     }
   )
 
+
   //MUTATION - Edit List
   
-  const editList = (listId: string, title: string) => {
-    editListMutation.mutate({ listId, title });
+  const editList = (list: List) => {
+    editListMutation.mutate(list);
   }
 
-  if (listsLoading) return <div className='max-w-full min-h-screen bg-neutral flex justify-center content-center'><span className="loading loading-spinner loading-lg"></span></div>;
-  if (tasksLoading) return <div className='max-w-full min-h-screen bg-neutral flex justify-center content-center'><span className="loading loading-spinner loading-lg"></span></div>;
+
+  // Show loading animation while Lists and Tasks are fetching from the API
+
+  if (listsLoading) {
+    return (
+      <div className='max-w-full min-h-screen bg-neutral flex justify-center content-center'>
+      <span className="loading loading-spinner loading-lg"></span>
+      </div>
+      )}
+
+  if (tasksLoading) {
+    return (
+    <div className='max-w-full min-h-screen bg-neutral flex justify-center content-center'>
+      <span className="loading loading-spinner loading-lg"></span>
+    </div>
+    )}
+
+
+  // RETURN
 
   return (
     <main className="max-w-full min-h-screen bg-neutral">
+
+      {/** To Do List form (Filter, Search Bar, Create New List button) */}
       <AddToDoListForm 
       onAddToDoList={addToDoList} 
       setFilterTaskRadio={setFilterTaskRadio} 
       searchText={searchText}
       setSearchText={setSearchText}/>
       
+      {/** Generate and filter Lists and Tasks */}
       <div className="max-w-screen flex flex-wrap justify-evenly gap-6 p-8">
       {allLists?.map((list) => {
         const tasksForList = getFilteredTasks(allTasks?.filter((task) => 
@@ -223,15 +235,14 @@ const ToDoBoard: React.FC = () => {
           return (
             <ToDoList
               key={list.id}
-              id={list.id}
-              title={list.title}
+              list={list}
               tasks={tasksForList}
               onRemove={() => deleteToDoList(list.id)}
               onAddTask={(task) => addTask(list.id, task)}
               onRemoveTask={(taskId) => removeTask(list.id, taskId)}
               onToggleStatus={(taskId) => toggleTaskStatus(list.id, taskId)}
               onEditTask={(task) => editTask(task)}
-              onEditList={(listId, title) => editList(listId, title)}
+              onEditList={(list) => editList(list)}
             />
   );
 })}

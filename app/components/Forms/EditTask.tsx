@@ -1,14 +1,6 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form'
-
-interface Task {
-  id: string,
-  ListId: string,
-  title: string,
-  description: string,
-  deadline: string,
-  isFinished: boolean;
-};
+import { Task } from '../interfaces/interfaces';
 
 interface EditTaskProps {
   task: Task;

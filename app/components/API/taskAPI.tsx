@@ -1,27 +1,5 @@
 const BASE_URL = 'https://647c868bc0bae2880ad0d09c.mockapi.io/Lists';
-
-interface List {
-    id: string;
-    title: string;
-  }
-
-interface Task {
-    id: string;
-    ListId: string;
-    title: string;
-    description: string;
-    deadline: string;
-    isFinished: boolean;
-  }
-
-  interface TaskCreationData {
-    listId: string,
-    title: string,
-    description: string,
-    deadline: string;
-    isFinished: boolean;
-  }
-
+import { List, Task, TaskCreationData } from "../interfaces/interfaces";
   
 // Fetch TASKS from the mockAPI
 

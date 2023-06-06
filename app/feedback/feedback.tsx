@@ -12,6 +12,7 @@ const feedbackSchema = z.object({
 
 const Feedback: React.FC = () => {
 
+  // Track the result from the API
   const [ resultAPI, setResultAPI] = useState('');
 
   const { 
@@ -23,6 +24,7 @@ const Feedback: React.FC = () => {
     resolver: zodResolver(feedbackSchema)
   });
 
+  // Handle form submit - Wait for the API result to show confirmation message or vice versa
   const onSubmit = (data: any) => {
     sendFeedback(data)
     .then(() => {
@@ -34,6 +36,7 @@ const Feedback: React.FC = () => {
     });
   };
 
+  // Submit new Form - hide the success message (I mean not a big deal, but for a better feeling :D )
   const resetForm = () => {
     setResultAPI('');
   }
@@ -42,6 +45,7 @@ const Feedback: React.FC = () => {
     <main className="max-w-full min-h-screen bg-neutral">
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
+          {/** Feedback Description */}
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Feedback Form</h1>
             <p className="py-6">Once again thank you so much for testing out my application. From my experience I have learned, that the best feedback is from Users. <br/><br/>
@@ -50,7 +54,9 @@ const Feedback: React.FC = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
+              {/** Form handling the submit */}
               <form onSubmit={handleSubmit(onSubmit)}>
+                {/** Email */}
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -61,6 +67,7 @@ const Feedback: React.FC = () => {
                     placeholder="test@test.com"
                     className="input input-bordered"
                   />
+                  {/** Show the error message */}
                   {errors.email && <span className="text-error">{String(errors.email.message)}</span>}
                 </div>
                 <div className="form-control">
@@ -73,6 +80,7 @@ const Feedback: React.FC = () => {
                     placeholder="Name"
                     className="input input-bordered"
                   />
+                  {/** Show the error message */}
                   {errors.name && <span className="text-error">{String(errors.name.message)}</span>}
                 </div>
                 <div className="form-control">
@@ -84,12 +92,15 @@ const Feedback: React.FC = () => {
                     className="textarea textarea-bordered"
                     placeholder="Description"
                   />
+                  {/** Show the error message */}
                   {errors.feedback && <span className="text-error">{String(errors.feedback?.message)}</span>}
                 </div>
+                {/** Submit button */}
                 <div className="form-control mt-6">
                   <button type="submit" className="btn btn-primary">
                     Send
                   </button>
+                  {/** Show success / error message after the feedback from the API */}
                   {resultAPI === 'success' && 
                   <div className='mt-3 flex flex-col place-items-center'>
                     <span className="text-success">Feedback submitted successfully!</span>

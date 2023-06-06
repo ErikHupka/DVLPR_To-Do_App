@@ -1,48 +1,38 @@
 import React, { useMemo } from 'react';
-import ToDoItem from './ToDoItem';
+import ToDoItem from './ToDoTask';
 import AddToDoItemForm from '../Forms/AddToDoItemForm';
 import DeleteList from '../Forms/DeleteList';
 import EditTask from '../Forms/EditTask';
 import EditList from '../Forms/EditList';
+import { Task, TaskCreationData, List } from '../interfaces/interfaces'
 
-
-interface Task {
-  id: string;
-  ListId: string,
-  title: string;
-  description: string;
-  deadline: string;
-  isFinished: boolean;
-}
-
-interface TaskCreationData {
-  listId: string,
-  title: string,
-  description: string,
-  deadline: string;
-  isFinished: boolean;
-}
+// Define ToDoListProps to pass to ToDoBoard.tsx
 
 interface ToDoListProps {
-  id: string;
-  title: string;
+  list: List;
   tasks: Task[] | undefined;
   onAddTask: (task: TaskCreationData) => void;
   onRemove: () => void;
   onRemoveTask: (taskId: string) => void;
   onToggleStatus: (taskId: string) => void;
   onEditTask: (task: Task) => void;
-  onEditList: (listId: string, title: string) => void;
+  onEditList: (list: List) => void;
 }
 
+const ToDoList: React.FC<ToDoListProps> = ({ list, tasks, onRemove, onAddTask, onRemoveTask, onToggleStatus, onEditTask, onEditList }) => {
+  
 
-const ToDoList: React.FC<ToDoListProps> = ({ id, title, tasks, onRemove, onAddTask, onRemoveTask, onToggleStatus, onEditTask, onEditList }) => {
+  //Filter Tasks related to each list based on the ListID value
+
   const filteredTasks = useMemo(() => {
     if (tasks) {
-      return tasks.filter((task) => task.ListId === id);
+      return tasks.filter((task) => task.ListId === list.id);
     }
     return [];
-  }, [tasks, id]);
+  }, [tasks, list.id]);
+
+
+  //Pass values up to the ToDoBoard.tsx
 
   const addTask = (task: TaskCreationData) => {
     onAddTask(task);
@@ -52,24 +42,25 @@ const ToDoList: React.FC<ToDoListProps> = ({ id, title, tasks, onRemove, onAddTa
     onEditTask(task);
   };
 
-  const editList = (listId: string, title: string) => {
-    onEditList(listId, title);
+  const editList = (list: List) => {
+    console.log(list);
+    onEditList(list);
   }
 
   return (
     <div className="bg-base-300 p-2 rounded-lg w-96">
-      <div className='flex items-center bg-base-100 overflow-hidden'>
-      <EditList onEditList={editList} listId={id} title={title}/>
-      <h2 className='flex-1 p-3 text-base-content'>{title}</h2>
 
-      <div className="flex-none gap-2">
-        <div className="form-control">
-          </div>
-        </div>
+      {/** Edit List button, Show Title, AddTask Button, Delete Current List */}
+
+      <div className='flex items-center bg-base-100 overflow-hidden'>
+        <EditList onEditList={editList} list={list}/>
+        <h2 className='flex-1 p-3 text-base-content'>{list.title}</h2>
         <AddToDoItemForm onAddTask={addTask} />
         <DeleteList onDeleteList={onRemove} />
-
       </div>
+
+      {/** Show related ToDoItems */}
+
       <div className="h-96 overflow-scroll">
         {filteredTasks.map((task) => (
           <ToDoItem
@@ -80,7 +71,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ id, title, tasks, onRemove, onAddTa
             onEditTask={editTask}
         />
       ))}
-    </div>
+      </div>
     </div>
   );
 };

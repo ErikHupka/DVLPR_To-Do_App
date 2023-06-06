@@ -1,12 +1,8 @@
 const BASE_URL = 'https://647c868bc0bae2880ad0d09c.mockapi.io';
+import { List } from "../interfaces/interfaces";
 
 
-interface List {
-    id: string;
-    title: string;
-  }
-
-
+// FETCH LISTS from mockAPI
 export async function fetchLists(): Promise<List[]> {
     const response = await fetch(`${BASE_URL}/Lists`);
     if (!response.ok) {
@@ -15,6 +11,8 @@ export async function fetchLists(): Promise<List[]> {
     return response.json();
 }
 
+
+// CREATE NEW LIST 
 export async function createList(title: string) {
     const response = await fetch(`${BASE_URL}/Lists`, {
         method: 'POST',
@@ -29,6 +27,7 @@ export async function createList(title: string) {
     return response.json();
 }
 
+// DELETE A SPECIFIC LIST 
 export async function deleteList(listId: string) {
     const response = await fetch(`${BASE_URL}/Lists/${listId}`, {
       method: 'DELETE',
@@ -39,19 +38,15 @@ export async function deleteList(listId: string) {
     return response.json();
   }
 
-
-export async function editList(listId: string, title: string) {
-  const newList = {
-    id: listId,
-    title: title
-  }
-
-  const response = await fetch(`${BASE_URL}/Lists/${listId}`, {
+// EDIT LIST 
+export async function editList(list: List) {
+  console.log(list);
+  const response = await fetch(`${BASE_URL}/Lists/${list.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(newList),
+    body: JSON.stringify(list),
   });
   if (!response.ok) {
     throw new Error('Problem with updating task');

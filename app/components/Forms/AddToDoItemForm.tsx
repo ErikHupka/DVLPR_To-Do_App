@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
-
 interface AddToDoItemModalProps {
     onAddTask: (task: {
       listId: string,

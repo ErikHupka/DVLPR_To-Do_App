@@ -99,7 +99,7 @@ const AddToDoListForm: React.FC<AddToDoListFormProps> = ({ onAddToDoList, setFil
 
           <div className="form-control">
             <label className="input-group mt-2">
-              <span className="w-80">New List</span>
+              <span className="w-80">New</span>
               <input {...register('title', { required: true, minLength:1, maxLength:15  })} type="text" placeholder="Title (max. 15)" className="input input-bordered w-screen" autoFocus/>
             </label>
             {errors.title && <span className="m-2 text-error">This field is required (max. 15)</span>}
